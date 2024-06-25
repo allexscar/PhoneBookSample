@@ -1,0 +1,7 @@
+-- SCHEMA: test
+
+-- DROP SCHEMA IF EXISTS test ;
+
+CREATE SCHEMA IF NOT EXISTS test
+    AUTHORIZATION testuser;
+	
