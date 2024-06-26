@@ -30,8 +30,7 @@ public class User {
         this.name = name;
     }
 
-    @OneToMany(cascade=ALL)
-    @JoinColumn(name="user_id")
+    @OneToMany(cascade=ALL, mappedBy = "user")
     private List<Phone> phones;
 
     public List<Phone> getPhones() {
@@ -42,4 +41,11 @@ public class User {
         this.phones = phones;
     }
 
+    public User() {
+    }
+
+    public User(String name, List<Phone> phones) {
+        this.name = name;
+        this.phones = phones;
+    }
 }

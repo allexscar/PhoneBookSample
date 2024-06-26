@@ -28,18 +28,6 @@ public class Phone {
         this.phone = phone;
     }
 
-    @Column(name = "user_id")
-    private Long userId;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    /*
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
@@ -51,6 +39,11 @@ public class Phone {
     public void setUser(User user) {
         this.user = user;
     }
-     */
 
+    public Phone() {
+    }
+
+    public Phone(String phone) {
+        this.phone = phone;
+    }
 }
