@@ -1,6 +1,7 @@
 package com.example.PhoneBookSample;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -13,4 +14,5 @@ public interface UsersRepository extends JpaRepository<User, Long> {
 
     @Query(value="select distinct u.* from test.users u, test.phones p where p.user_id=u.id and p.phone like '%' || :phone || '%'", nativeQuery = true)
     List<User> getUsersByPhone(@Param("phone") String phone);
+
 }

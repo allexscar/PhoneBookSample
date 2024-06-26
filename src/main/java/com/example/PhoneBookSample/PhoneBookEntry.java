@@ -1,5 +1,6 @@
 package com.example.PhoneBookSample;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -44,5 +45,15 @@ public class PhoneBookEntry {
 
     public void setPhones(String[] phones) {
         this.phones = phones;
+    }
+
+    public User toUser() {
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
+        user.setPhones(Arrays.stream(phones)
+                .map(phone -> new Phone(phone, user))
+                .toList());
+        return user;
     }
 }

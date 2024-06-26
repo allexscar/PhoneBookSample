@@ -43,9 +43,4 @@ public class User {
 
     public User() {
     }
-
-    public User(String name, List<Phone> phones) {
-        this.name = name;
-        this.phones = phones;
-    }
 }

@@ -4,3 +4,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: testuser
     password: 1234
+  jpa:
+    show-sql: true
+    

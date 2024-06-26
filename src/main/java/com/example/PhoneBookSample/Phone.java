@@ -29,7 +29,7 @@ public class Phone {
     }
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="user_id", nullable = false)
     private User user;
 
     public User getUser() {
@@ -43,7 +43,8 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(String phone) {
+    public Phone(String phone, User user) {
         this.phone = phone;
+        this.user = user;
     }
 }

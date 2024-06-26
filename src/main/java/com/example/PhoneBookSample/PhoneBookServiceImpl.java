@@ -6,17 +6,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 @Transactional
 public class PhoneBookServiceImpl implements PhoneBookService {
-    @Autowired
+    final
     UsersRepository usersRepo;
 
-    @Autowired
+    final
     PhonesRepository phonesRepo;
+
+    public PhoneBookServiceImpl(UsersRepository usersRepo, PhonesRepository phonesRepo) {
+        this.usersRepo = usersRepo;
+        this.phonesRepo = phonesRepo;
+    }
 
     @Override
     public List<PhoneBookEntry> allUsers() {
@@ -53,11 +56,7 @@ public class PhoneBookServiceImpl implements PhoneBookService {
     }
 
     @Override
-    public Long save(PhoneBookEntry entry) {
-        User user = new User(entry.getName(),
-                Arrays.stream(entry.getPhones())
-                        .map(Phone::new)
-                        .toList());
-        return usersRepo.save(user).getId();
+    public PhoneBookEntry save(PhoneBookEntry entry) {
+        return new PhoneBookEntry(usersRepo.saveAndFlush(entry.toUser()));
     }
 }

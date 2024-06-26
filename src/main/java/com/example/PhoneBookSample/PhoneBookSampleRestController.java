@@ -35,8 +35,7 @@ public class PhoneBookSampleRestController {
     }
 
     @PostMapping("/add_user")
-    public String addUser(@RequestBody PhoneBookEntry entry) {
-        Long resId = srv.save(entry);
-        return resId > 0 ? "Added a new user with id=" + resId : "Failed to add a new user";
+    public PhoneBookEntry addUser(@RequestBody PhoneBookEntry entry) {
+        return srv.save(entry);
     }
 }

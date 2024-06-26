@@ -6,6 +6,6 @@ public interface PhoneBookService {
     List<PhoneBookEntry> allUsers();
     List<PhoneBookEntry> getUserByName(String name);
     List<PhoneBookEntry> getUserByPhone(String phone, boolean useQuery);
-    Long save(PhoneBookEntry entry);
+    PhoneBookEntry save(PhoneBookEntry entry);
 
 }
