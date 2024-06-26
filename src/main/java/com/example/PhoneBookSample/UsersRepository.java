@@ -14,4 +14,6 @@ public interface UsersRepository extends JpaRepository<User, Long> {
 
     @Query(value="select distinct u.* from test.users u, test.phones p where p.user_id=u.id and p.phone like '%' || :phone || '%'", nativeQuery = true)
     List<User> getUsersByPhone(@Param("phone") String phone);
+
+    Integer deleteAllByNameContains(String name);
 }

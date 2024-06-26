@@ -7,5 +7,5 @@ public interface PhoneBookService {
     List<PhoneBookEntry> getUserByName(String name);
     List<PhoneBookEntry> getUserByPhone(String phone, boolean useQuery);
     PhoneBookEntry save(PhoneBookEntry entry);
-
+    Integer deleteByName(String name);
 }

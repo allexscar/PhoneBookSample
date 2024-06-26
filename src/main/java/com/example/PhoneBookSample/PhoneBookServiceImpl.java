@@ -57,4 +57,9 @@ public class PhoneBookServiceImpl implements PhoneBookService {
     public PhoneBookEntry save(PhoneBookEntry entry) {
         return new PhoneBookEntry(usersRepo.saveAndFlush(entry.toUser()));
     }
+
+    @Override
+    public Integer deleteByName(String name) {
+        return usersRepo.deleteAllByNameContains(name);
+    }
 }
